@@ -9,7 +9,7 @@ this installation script has been made on ubuntu 18.04.
 Its use is to easily install python opencv, numpy....
 
 ```
-bash build.bash
+pip3 install -r requirement.txt
 ```
 
 ## Usage
