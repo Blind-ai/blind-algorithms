@@ -316,9 +316,17 @@ def launch_threaded_searchers(img, original, nb_thread):
                     exit = True
 
     cv2.destroyAllWindows()
+
+    original = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
+    original = cv2.cvtColor(original, cv2.COLOR_GRAY2BGR)
+    copy = original.copy()
+
+    for box in boxes:
+        cv2.rectangle(copy, (box[0][1], box[0][0]), (box[1][1], box[1][0]), (0, 255, 0), 1)
+    show_wait_destroy("copy", copy)
     boxes = fusion_boxes(boxes)
     for box in boxes:
-        cv2.rectangle(original, (box[0][1], box[0][0]), (box[1][1], box[1][0]), (60, 60, 60), 1)
+        cv2.rectangle(original, (box[0][1], box[0][0]), (box[1][1], box[1][0]), (0, 0, 255), 1)
 
     for thread in thread_list:
         thread.keep_running = False

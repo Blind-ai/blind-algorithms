@@ -311,10 +311,14 @@ def launch_threaded_searchers(img, original, nb_thread):
                 if cv2.waitKey(1) & 0xFF == 27:
                     exit = True
 
+    # image with one channel to image with rgb
+    original = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
+    original = cv2.cvtColor(original, cv2.COLOR_GRAY2BGR)
+
     cv2.destroyAllWindows()
     boxes = fusion_boxes(boxes)
     for box in boxes:
-        cv2.rectangle(original, (box[0][1], box[0][0]), (box[1][1], box[1][0]), (60, 60, 60), 1)
+        cv2.rectangle(original, (box[0][1], box[0][0]), (box[1][1], box[1][0]), (0, 0, 255), 1)
 
     for thread in thread_list:
         thread.keep_running = False
