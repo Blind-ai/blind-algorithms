@@ -322,6 +322,9 @@ def launch_threaded_searchers(img, original, nb_thread):
     copy = original.copy()
 
     for box in boxes:
+        cv2.imshow("running", copy)
+        cv2.moveWindow("running", 500, 0)
+        cv2.waitKey(10)
         cv2.rectangle(copy, (box[0][1], box[0][0]), (box[1][1], box[1][0]), (0, 255, 0), 1)
     show_wait_destroy("copy", copy)
     boxes = fusion_boxes(boxes)
