@@ -1,7 +1,6 @@
 open music sheet box bounding v1.0
 ======================
-The goal of this project's to find bounding boxes into a music sheet.<br />
-You'll have the possibility to either implement my API in your code and receive an array of bounding box or write them into a file.
+The goal of this is to find bounding boxes into a music sheet.<br />
 
 ## Easy dependencies installer
 
@@ -9,7 +8,7 @@ this installation script has been made on ubuntu 18.04.
 Its use is to easily install python opencv, numpy....
 
 ```
-bash build.bash
+pip3 install -r requirement.txt
 ```
 
 ## Usage
